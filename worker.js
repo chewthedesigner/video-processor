@@ -1,3 +1,4 @@
+import 'dotenv/config';
 import { createClient } from "@supabase/supabase-js";
 import { exec } from "child_process";
 import fs from "fs";
@@ -10,7 +11,7 @@ const __dirname = path.dirname(__filename);
 
 const supabase = createClient(
   process.env.SUPABASE_URL,
-  process.env.SUPABASE_SERVICE_KEY
+  process.env.SUPABASE_ANON_KEY
 );
 
 // 🔹 Poll every 30s
