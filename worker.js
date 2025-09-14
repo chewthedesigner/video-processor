@@ -14,6 +14,14 @@ const supabase = createClient(
   process.env.SUPABASE_ANON_KEY
 );
 
+async function testSupabase() {
+  const { data, error } = await supabase.from('videos').select().limit(1);
+  if (error) console.error('Supabase error:', error);
+  else console.log('Supabase test data:', data);
+}
+
+testSupabase();
+
 // 🔹 Poll every 30s
 setInterval(async () => {
   console.log("Checking for video jobs...");
