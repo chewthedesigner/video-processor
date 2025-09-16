@@ -1,4 +1,5 @@
-import 'dotenv/config';
+import dotenv from "dotenv";
+dotenv.config();
 import { createClient } from "@supabase/supabase-js";
 import { exec } from "child_process";
 import fs from "fs";
@@ -111,3 +112,5 @@ setInterval(async () => {
       .eq("id", job.id);
   }
 }, 30000);
+
+console.log("Supabase URL:", process.env.SUPABASE_URL);
